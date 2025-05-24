@@ -4,7 +4,9 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copiar el archivo JAR generado
-COPY "./target/Sistema-Notas-1.jar" "app.jar"
+COPY . .
+RUN ./mvnw clean package -DskipTests
+COPY target/Sistema-Notas-1.jar app.jar
 
 # Exponer el puerto que usará la aplicación
 EXPOSE 8086
