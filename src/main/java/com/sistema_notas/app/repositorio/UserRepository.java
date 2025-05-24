@@ -13,4 +13,5 @@ public interface UserRepository extends MongoRepository<User, String> {
     List<User> findByFullNameContainingIgnoreCaseOrEmailContainingIgnoreCase(String fullName, String email);
     List<User> findByRole(String role); 
     void deleteByUserId(String userId);
+    long countByRole(String role);
 }
